@@ -30,10 +30,22 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text)
-    )
+#    line_bot_api.reply_message(
+#        event.reply_token,
+#        TextSendMessage(text=event.message.text)
+#    )
 
+text = event.message.text
+print(text)
+if text == "Hi":
+    reply_text = "Hello, 你好嗎？"
+elif text == "你好":
+    reply_text = "Hi! 你好呀～"
+else:
+    reply_text = "Hola, 想問米機器人什麼呢？"
+
+message = TextSendMessage(reply_text)
+line_bot_api.reply_message(event.reply_token, message)
+    
 if __name__ == "__main__":
     app.run()
