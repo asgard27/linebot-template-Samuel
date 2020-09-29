@@ -34,17 +34,33 @@ def handle_message(event):
 #        event.reply_token,
 #        TextSendMessage(text=event.message.text)
 #    )
+    text = event.message.text
+    # print(text)
+    text = text.encode('utf-8')
+    if text == "Hi":
+      reply_text = "Hello, 你好嗎？"
+    elif text == "你好":
+      reply_text = "Hi! 你好呀～"
+    else:
+      reply_text = "Hola, 想問米機器人什麼呢？"
 
-text = event.message.text
-print(text)
-text = text.encode('utf-8')
-if text == "Hi":
-    reply_text = "Hello, 你好嗎？"
-elif text == "你好":
-    reply_text = "Hi! 你好呀～"
-else:
-    reply_text = "Hola, 想問米機器人什麼呢？"
-
+def handle_message(event):
+    msg = event.message.text
+    #print(type(msg))
+    msg = msg.encode('utf-8')  
+    if event.message.text == "文字":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+    elif event.message.text == "貼圖":
+        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=3, sticker_id=183))
+    elif event.message.text == "圖片":
+        line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='圖片網址', preview_image_url='圖片網址'))
+    elif event.message.text == "影片":
+        line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url='影片網址', preview_image_url='預覽圖片網址'))
+    elif event.message.text == "音訊":
+        line_bot_api.reply_message(event.reply_token,AudioSendMessage(original_content_url='音訊網址', duration=100000))
+    return 'OK2'
+    
+    
 message = TextSendMessage(reply_text)
 line_bot_api.reply_message(event.reply_token, message)
     
