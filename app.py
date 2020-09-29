@@ -7,8 +7,8 @@ import os
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi(os.environ["r4HKt9COHnXG5cE3eX4wNvFH7rHXh6CSTuIJF37YMCPnNIgP9Cnku8T+5BsTXzu0rHQO0MKbQPjJceyic3Z7JFUQ68uJNq4yQe/puz11ZPG16H4d/DZPcSulNi5lOQmzNqp9Zuj4up/fd24XDDdseQdB04t89/1O/w1cDnyilFU="])
-handler = WebhookHandler(os.environ["cc6705eadfa7b4f1a9ccd67df09ed1b1"])
+line_bot_api = LineBotApi("r4HKt9COHnXG5cE3eX4wNvFH7rHXh6CSTuIJF37YMCPnNIgP9Cnku8T+5BsTXzu0rHQO0MKbQPjJceyic3Z7JFUQ68uJNq4yQe/puz11ZPG16H4d/DZPcSulNi5lOQmzNqp9Zuj4up/fd24XDDdseQdB04t89/1O/w1cDnyilFU=")
+handler = WebhookHandler("cc6705eadfa7b4f1a9ccd67df09ed1b1")
 
 @app.route("/")
 def root():
