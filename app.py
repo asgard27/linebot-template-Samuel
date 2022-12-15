@@ -33,11 +33,11 @@ def handle_message(event):
 #    line_bot_api.reply_message(
 #        event.reply_token,
 #        TextSendMessage(text=event.message.text)
-    )
+#     )
 
     text = event.message.text
     # print(text)
-#     text = text.encode('utf-8')
+    # text = text.encode('utf-8')
     if text == "Hi":
       reply_text = "Hello, 你好嗎？"
     elif text == "你好":
@@ -47,15 +47,15 @@ def handle_message(event):
 
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
-#     msg = event.message.text
-#     #print(type(msg))
-#     msg = msg.encode('utf-8')  
-#     if event.message.text == "文字":
-#         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
-#     elif event.message.text == "貼圖":
-#         line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=3, sticker_id=183))
-#     return 'OK2'
-        
+
+    # msg = event.message.text
+    # #print(type(msg))
+    # msg = msg.encode('utf-8')  
+    # if event.message.text == "文字":
+    #     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+    # elif event.message.text == "貼圖":
+    #     line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=3, sticker_id=183))
+    # return 'OK2'
      
 if __name__ == "__main__":
     app.run()
